@@ -1,6 +1,5 @@
 import com.beust.kobalt.*
 import com.beust.kobalt.plugin.packaging.assemble
-import com.beust.kobalt.plugin.kotlin.*
 import com.beust.kobalt.plugin.publish.bintray
 import com.beust.kobalt.plugin.publish.github
 
@@ -9,7 +8,7 @@ val repos = repos()
 val kotlinVersion = "1.0.0-beta-4584"
 val cucumberVersion = "1.2.5-SNAPSHOT"
 
-val p = kotlinProject {
+val p = project {
 
     name = "Klap"
     group = "me.sargunvohra.lib"
@@ -29,6 +28,7 @@ val p = kotlinProject {
     dependencies {
         compile("org.jetbrains.kotlin:kotlin-stdlib:$kotlinVersion")
         compile("org.jetbrains.kotlin:kotlin-runtime:$kotlinVersion")
+        compile("org.jetbrains.kotlin:kotlin-reflect:$kotlinVersion")
         compile("me.sargunvohra.lib:CakeParse:1.0.1")
     }
 
