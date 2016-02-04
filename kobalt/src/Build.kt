@@ -29,6 +29,7 @@ val p = kotlinProject {
     dependencies {
         compile("org.jetbrains.kotlin:kotlin-stdlib:$kotlinVersion")
         compile("org.jetbrains.kotlin:kotlin-runtime:$kotlinVersion")
+        compile("me.sargunvohra.lib:CakeParse:1.0.1")
     }
 
     dependenciesTest {
