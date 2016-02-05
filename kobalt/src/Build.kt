@@ -13,7 +13,7 @@ val p = project {
     name = "Klap"
     group = "me.sargunvohra.lib"
     artifactId = name
-    version = "1.0.1"
+    version = "0.1.0-SNAPSHOT"
 
     sourceDirectories {
         path("src/main/kotlin")
