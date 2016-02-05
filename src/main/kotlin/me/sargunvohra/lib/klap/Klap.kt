@@ -48,7 +48,7 @@ object Klap {
             if (!keys.contains(key))
                 current = current.copy(
                         flagArgs = current.flagArgs + key,
-                        valueArgs = current.valueArgs - key,
+                        valueArgs = current.valueArgs.toSortedMap().apply { remove(key) },
                         wordArgs = current.wordArgs + value
                 )
         }
@@ -64,7 +64,7 @@ object Klap {
         val constructor = target.primaryConstructor
                 ?: throw MissingConstructorException(target.simpleName ?: target.jvmName)
 
-        val nameToParameter = constructor.parameters.toMap { it.name!! to it }
+        val nameToParameter = constructor.parameters.associate { it.name!! to it }
 
         val groups = nameToParameter.toList().groupBy { it.second.type }
 
