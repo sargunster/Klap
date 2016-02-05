@@ -1,8 +1,8 @@
 buildscript {
 	ext {
-		kotlinVersion = '1.0.0-rc-1036'
+		kotlinVersion = '1.0.0-beta-4589'
 		cucumberVersion = '1.2.4'
-		cakeParseVersion = '1.0.5'
+		cakeParseVersion = '1.0.1'
 		junitVersion = '4.12'
 	}
 	repositories {
@@ -30,7 +30,8 @@ repositories {
 }
 
 dependencies {
-	compile group: 'org.jetbrains.kotlin', name: 'kotlin-stdlib', version: kotlinVersion
+	compile group: 'org.jetbrains.kotlin', name: 'kotlin-stdlib',  version: kotlinVersion
+	compile group: 'org.jetbrains.kotlin', name: 'kotlin-reflect', version: kotlinVersion
 	compile group: 'me.sargunvohra.lib', name: 'CakeParse', version: cakeParseVersion
 	
 	testCompile group: 'org.jetbrains.kotlin', name: 'kotlin-test', version: kotlinVersion
