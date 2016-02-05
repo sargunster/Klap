@@ -1,15 +1,22 @@
 
 local.properties
 
-### Kobalt ###
-.kobalt
-kobaltBuild/
 
-# Avoid ignoring Kobalt wrapper jar file (.jar files are usually ignored)
-!kobalt-wrapper.jar
+# Created by https://www.gitignore.io/api/linux,windows,osx,intellij,gradle
 
+### Gradle ###
+.gradle
+build/
 
-# Created by https://www.gitignore.io/api/linux,windows,osx,intellij
+# Ignore Gradle GUI config
+gradle-app.setting
+
+# Avoid ignoring Gradle wrapper jar file (.jar files are usually ignored)
+!gradle-wrapper.jar
+
+# Cache of project
+.gradletasknamecache
+
 
 ### Linux ###
 *~
@@ -75,25 +82,25 @@ Temporary Items
 *.iml
 
 ## Directory-based project format:
-# .idea/
+.idea/
 # if you remove the above rule, at least ignore the following:
 
 # User-specific stuff:
-.idea/workspace.xml
-.idea/tasks.xml
-.idea/dictionaries
-.idea/shelf
+# .idea/workspace.xml
+# .idea/tasks.xml
+# .idea/dictionaries
+# .idea/shelf
 
 # Sensitive or high-churn files:
-.idea/dataSources.ids
-.idea/dataSources.xml
-.idea/sqlDataSources.xml
-.idea/dynamic.xml
-.idea/uiDesigner.xml
+# .idea/dataSources.ids
+# .idea/dataSources.xml
+# .idea/sqlDataSources.xml
+# .idea/dynamic.xml
+# .idea/uiDesigner.xml
 
 # Gradle:
-.idea/gradle.xml
-.idea/libraries
+# .idea/gradle.xml
+# .idea/libraries
 
 # Mongo Explorer plugin:
 .idea/mongoSettings.xml
