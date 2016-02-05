@@ -74,7 +74,7 @@ object Klap {
 
         val parsedResult = input.toTokens().toParsed().toResult(flagToParameter.keys, keyToParameter.keys)
 
-        val args = hashMapOf<KParameter, Any>()
+        val args = linkedMapOf<KParameter, Any>()
 
         flagToParameter.values.forEach {
             args[it] = false

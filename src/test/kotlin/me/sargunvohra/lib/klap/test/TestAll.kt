@@ -4,11 +4,11 @@ import me.sargunvohra.lib.klap.annotation.ListArg
 
 data class TestAll(
         val b: Boolean,
-        val s1: String,
-        val s2: String = "s2",
+        val x: String,
+        val y: String = "default",
 
         @ListArg
         val list: List<String>
 ) {
-    override fun toString() = (listOf(b, s1, s2) + list).joinToString(", ")
+    override fun toString() = (listOf(b, x, y) + list).joinToString(", ")
 }

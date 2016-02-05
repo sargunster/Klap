@@ -61,12 +61,26 @@ Feature: Command line argument parsing
     When I provide the arguments foo, bar, baz, qux
     Then it has values foo, bar, baz, qux
 
-#  TODO
+#  Flag args and key-value args can be used together.
 
-  Scenario:
+  Scenario: Mixed boolean and string
     Given a class with boolean and string properties
+    When I provide the arguments --one, --three, value
+    Then it has values true, false, value, four
 
-#  TODO
+  Scenario: Missing list
+    Given a class with boolean and string properties
+    When I provide the arguments --one, --three, value, value2
+    Then it fails with an invalid argument exception
 
-  Scenario:
+#  Flag args, key-value args, and lists all together
+
+  Scenario: Combine all three types
     Given a class with all types of properties
+    When I provide the arguments -bx, val, foo, bar,
+    Then it has values true, val, default, foo, bar
+
+  Scenario: Flag looks like key-value pair
+    Given a class with all types of properties
+    When I provide the arguments -b, foo, bar, baz, -x, world
+    Then it has values true, world, default, foo, bar, baz
