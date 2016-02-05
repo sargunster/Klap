@@ -68,8 +68,8 @@ object Klap {
 
         val groups = nameToParameter.toList().groupBy { it.second.type }
 
-        val flagToParameter = groups[Boolean::class.defaultType]!!.toMap()
-        val keyToParameter = groups[String::class.defaultType]!!.toMap()
+        val flagToParameter = groups[Boolean::class.defaultType]?.toMap() ?: emptyMap()
+        val keyToParameter = groups[String::class.defaultType]?.toMap() ?: emptyMap()
         val listParameter = constructor.parameters.find { it.annotations.any { it.annotationClass == ListArg::class } }
 
         val parsedResult = input.toTokens().toParsed().toResult(flagToParameter.keys, keyToParameter.keys)
@@ -98,4 +98,6 @@ object Klap {
 
         return constructor.callBy(args)
     }
+
+    fun <T: Any> parseArgs(input: Array<String>, target: KClass<T>) = parseArgs(input.toList(), target)
 }
