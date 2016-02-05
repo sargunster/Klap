@@ -43,6 +43,9 @@ object Klap {
         val initial = toInitialResult()
         var current = initial
 
+        val hold = current.wordArgs
+        current = current.copy(wordArgs = emptyList())
+
         current.valueArgs.forEach {
             val (key, value) = it
             if (!keys.contains(key))
@@ -52,6 +55,8 @@ object Klap {
                         wordArgs = current.wordArgs + value
                 )
         }
+
+        current = current.copy(wordArgs = current.wordArgs + hold)
 
         current.flagArgs.forEach {
             require(flags.contains(it)) { throw KlapInvalidArgException(if (it.length == 1) "-$it" else "--$it") }
