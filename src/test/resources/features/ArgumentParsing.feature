@@ -20,6 +20,11 @@ Feature: Command line argument parsing
     When I provide the arguments --hello
     Then it has values false, false, false, false, true, false
 
+  Scenario: Secondary names
+    Given a class with boolean properties
+    When I provide the arguments -hw
+    Then it has values false, false, false, false, true, true
+
   Scenario: Both single and double dash
     Given a class with boolean properties
     When I provide the arguments --world, -bc, -d
@@ -42,6 +47,11 @@ Feature: Command line argument parsing
   Scenario: All properties
     Given a class with string properties
     When I provide the arguments -a, test1, --hello, test2, -b, test3, --world, test4
+    Then it has values test1, test3, test2, test4
+
+  Scenario: All properties, with secondary names
+    Given a class with string properties
+    When I provide the arguments -a, test1, -h, test2, -b, test3, -w, test4
     Then it has values test1, test3, test2, test4
 
   Scenario: Missing key
