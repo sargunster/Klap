@@ -66,6 +66,9 @@ object Klap {
         return current
     }
 
+    /**
+     * TODO
+     */
     fun <T: Any> parseArgs(input: Iterable<String>, target: KClass<T>): T {
         val constructor = target.primaryConstructor
                 ?: throw MissingConstructorException(target.simpleName ?: target.jvmName)
