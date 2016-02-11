@@ -4,6 +4,7 @@ import me.sargunvohra.lib.cakeparse.api.*
 import me.sargunvohra.lib.cakeparse.lexer.TokenInstance
 import me.sargunvohra.lib.klap.internal.KlapResult
 import me.sargunvohra.lib.klap.annotation.ListArg
+import me.sargunvohra.lib.klap.annotation.SingleArg
 import me.sargunvohra.lib.klap.exception.KlapInvalidArgException
 import me.sargunvohra.lib.klap.exception.KlapMissingKeyException
 import me.sargunvohra.lib.klap.exception.MissingConstructorException
@@ -69,7 +70,16 @@ object Klap {
         val constructor = target.primaryConstructor
                 ?: throw MissingConstructorException(target.simpleName ?: target.jvmName)
 
-        val nameToParameter = constructor.parameters.associate { it.name!! to it }
+        val nameToParameter = hashMapOf<String, KParameter>()
+        constructor.parameters.forEach { param ->
+            param.annotations.filter {
+                it.annotationClass == SingleArg::class
+            }.forEach {
+                (it as SingleArg).names.forEach { name ->
+                    nameToParameter.put(name, param)
+                }
+            }
+        }
 
         val groups = nameToParameter.toList().groupBy { it.second.type }
 
