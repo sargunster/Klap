@@ -1,26 +1,26 @@
 package me.sargunvohra.lib.klap.exception
 
 /**
- * TODO
+ * Base class for all Klap exceptions
  */
 abstract class KlapException(msg: String): Exception(msg)
 
 /**
- * TODO
+ * Base class for Klap parsing exceptions.
  */
 abstract class KlapArgumentException(msg: String): KlapException(msg)
 
 /**
- * TODO
+ * Thrown when an invalid argument is found in the input.
  */
 class KlapInvalidArgException(arg: String): KlapArgumentException("invalid argument '$arg'")
 
 /**
- * TODO
+ * Thrown when a required key-value pair is not in the input.
  */
 class KlapMissingKeyException(key: String): KlapArgumentException("required key '$key' is not specified")
 
 /**
- * TODO
+ * Thrown when the class passed as a target to parseArgs doesn't have a usable constructor.
  */
 class MissingConstructorException(name: String): KlapException("missing primary constructor on class '$name'")

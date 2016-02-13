@@ -13,6 +13,9 @@ import me.sargunvohra.lib.klap.internal.KlapGrammar
 import kotlin.reflect.*
 import kotlin.reflect.jvm.jvmName
 
+/**
+ * This singleton is responsible for parsing command line arguments.
+ */
 object Klap {
 
     private fun Iterable<String>.toTokens() = map {
@@ -67,7 +70,10 @@ object Klap {
     }
 
     /**
-     * TODO
+     * Take the input and parse it as command line args, and construct an instance of the target class with the values.
+     *
+     * @param input the command line arguments to parse.
+     * @param target the class to construct based on the arguments.
      */
     fun <T: Any> parseArgs(input: Iterable<String>, target: KClass<T>): T {
         val constructor = target.primaryConstructor
