@@ -74,6 +74,12 @@ object Klap {
      *
      * @param input the command line arguments to parse.
      * @param target the class to construct based on the arguments.
+     *
+     * @return an instance of the [target] class
+     *
+     * @throws KlapInvalidArgException when an invalid argument is encountered in the [input]
+     * @throws KlapMissingKeyException when an expected key is not encountered in the [input]
+     * @throws MissingConstructorException when the [target] class does not have a primary constructor
      */
     fun <T: Any> parseArgs(input: Iterable<String>, target: KClass<T>): T {
         val constructor = target.primaryConstructor
