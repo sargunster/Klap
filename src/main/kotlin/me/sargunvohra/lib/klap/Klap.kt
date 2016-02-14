@@ -7,7 +7,7 @@ import me.sargunvohra.lib.klap.annotation.ListArg
 import me.sargunvohra.lib.klap.annotation.SingleArg
 import me.sargunvohra.lib.klap.exception.KlapInvalidArgException
 import me.sargunvohra.lib.klap.exception.KlapMissingKeyException
-import me.sargunvohra.lib.klap.exception.MissingConstructorException
+import me.sargunvohra.lib.klap.exception.KlapMissingConstructorException
 import me.sargunvohra.lib.klap.internal.Arg
 import me.sargunvohra.lib.klap.internal.KlapGrammar
 import kotlin.reflect.*
@@ -79,11 +79,11 @@ object Klap {
      *
      * @throws KlapInvalidArgException when an invalid argument is encountered in the [input]
      * @throws KlapMissingKeyException when an expected key is not encountered in the [input]
-     * @throws MissingConstructorException when the [target] class does not have a primary constructor
+     * @throws KlapMissingConstructorException when the [target] class does not have a primary constructor
      */
     fun <T: Any> parseArgs(input: Iterable<String>, target: KClass<T>): T {
         val constructor = target.primaryConstructor
-                ?: throw MissingConstructorException(target.simpleName ?: target.jvmName)
+                ?: throw KlapMissingConstructorException(target.simpleName ?: target.jvmName)
 
         val nameToParameter = hashMapOf<String, KParameter>()
         constructor.parameters.forEach { param ->

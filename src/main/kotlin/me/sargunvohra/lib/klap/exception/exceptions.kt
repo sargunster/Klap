@@ -23,4 +23,4 @@ class KlapMissingKeyException(key: String): KlapArgumentException("required key 
 /**
  * Thrown when the class passed as a target to parseArgs doesn't have a usable constructor.
  */
-class MissingConstructorException(name: String): KlapException("missing primary constructor on class '$name'")
+class KlapMissingConstructorException(name: String): KlapException("missing primary constructor on class '$name'")
