@@ -8,6 +8,7 @@ object Versions {
     val testng = "6.9.9"
 }
 
+@Suppress("unused")
 val p = project {
 
     name = "Klap"
