@@ -4,8 +4,8 @@ import com.beust.kobalt.plugin.publish.bintray
 
 object Versions {
     val kotlin = "1.0.1"
-    val cucumber = "1.2.4"
     val cakeparse = "1.0.7"
+    val testng = "6.9.9"
 }
 
 val p = project {
@@ -23,8 +23,7 @@ val p = project {
 
     dependenciesTest {
     	compile("org.jetbrains.kotlin:kotlin-test:${Versions.kotlin}")
-        compile("info.cukes:cucumber-junit:${Versions.cucumber}")
-        compile("info.cukes:cucumber-java8:${Versions.cucumber}")
+        compile("org.testng:testng:${Versions.testng}")
     }
 
     assemble {
