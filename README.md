@@ -1,5 +1,5 @@
-[![Build Status](https://travis-ci.org/sargunster/Klap.svg?branch=master)](https://travis-ci.org/sargunster/Klap)
-[![Download](https://api.bintray.com/packages/sargunster/maven/Klap/images/download.svg)](https://bintray.com/sargunster/maven/Klap/_latestVersion)
+[![Build Status](https://travis-ci.org/sargunster/klap.svg?branch=master)](https://travis-ci.org/sargunster/klap)
+[![Download](https://api.bintray.com/packages/sargunster/maven/klap/images/download.svg)](https://bintray.com/sargunster/maven/klap/_latestVersion)
 
 # Klap
 
