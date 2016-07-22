@@ -3,9 +3,9 @@ import com.beust.kobalt.plugin.packaging.assemble
 import com.beust.kobalt.plugin.publish.bintray
 
 object Versions {
-    val kotlin = "1.0.2"
-    val cakeparse = "1.0.8"
-    val testng = "6.9.9"
+    val kotlin = "1.0.3"
+    val cakeparse = "1.1.1"
+    val testng = "6.9.10"
 }
 
 @Suppress("unused")
@@ -14,7 +14,7 @@ val p = project {
     name = "klap"
     group = "me.sargunvohra.lib"
     artifactId = name
-    version = "1.0.4"
+    version = "1.1.0"
 
     dependencies {
     	compile("org.jetbrains.kotlin:kotlin-stdlib:${Versions.kotlin}")
